@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:whatsapp/view/camera_screen/camera_screen.dart';
 import 'package:whatsapp/view/chats_screen/individual_chat_screen.dart';
 import 'package:whatsapp/view/settings_screen/settings_screen.dart';
 import 'package:whatsapp/view/widgets/floating_action_btn.dart';
@@ -31,7 +32,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
           actions: [
             IconButton(icon: Icon(Icons.qr_code_scanner_outlined,color: Colors.black),onPressed: (){},),
             SizedBox(width: 8,),
-            IconButton(icon: Icon(Icons.camera_alt_outlined,color: Colors.black),onPressed: (){},),
+            IconButton(icon: Icon(Icons.camera_alt_outlined,color: Colors.black),onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen(),));
+            },),
             SizedBox(width: 8,),
             PopupMenuButton(
               iconColor: Colors.black,
@@ -58,7 +61,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.circle_outlined,color: Colors.blue,),
+                    prefixIcon: Icon(Icons.circle_outlined,color: Colors.blue,size: 26,),
                     hintText: "Ask Meta AI or Search",
                     hintStyle: TextStyle(fontWeight:FontWeight.normal,
                     fontSize: 14),
